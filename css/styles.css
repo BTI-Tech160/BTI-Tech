@@ -1,0 +1,792 @@
+/* =====================================================
+   BTI Tech · css/styles.css
+   Todo el diseño del sitio está en este archivo.
+   Orden: 1 Variables · 2 Base · 3 Encabezado · 4 Botones ·
+          5 Menú · 6 Secciones · 7 Tarjetas (Grid + Flexbox) ·
+          8 Imágenes y bloques · 9 Tablas · 10 Quiz ·
+          11 Formulario · 12 Navegación entre páginas ·
+          13 Pie de página · 14 Responsive (media queries) ·
+          15 Buscador · 16 Barra de progreso y nota · 17 Juego visual ·
+          18 Página de juegos
+   Convención: las media queries generales están en la sección 14; las
+   de los componentes agregados después (15 y 17) están junto a su componente.
+   ===================================================== */
+
+
+/* ---------- 1. VARIABLES ----------
+   Guardamos colores y medidas en un solo lugar.
+   Si queremos cambiar el azul, lo cambiamos acá y se actualiza todo. */
+:root {
+  /* Colores de la identidad de BTI Tech */
+  --azul: #1d4ed8;
+  --azul-oscuro: #1e40af;
+  --azul-claro: #eff6ff;
+  --azul-borde: #bfdbfe;
+  --fondo: #f4f7fb;
+  --fondo-oscuro: #0f172a;
+  --texto: #172033;
+  --texto-suave: #475569;       /* párrafos dentro de tarjetas */
+  --gris: #5b6b82;              /* subtítulos y pies de foto */
+  --borde: #e5eaf2;
+  --blanco: #ffffff;
+  --verde: #166534;
+  --verde-claro: #dcfce7;
+  --rojo: #b91c1c;
+  --rojo-claro: #fee2e2;
+  --titulo: #0f172a;            /* títulos dentro de tarjetas, formularios y juegos */
+  --borde-campo: #64748b;       /* borde de campos y opciones: contraste de 4,7:1 sobre blanco (mínimo 3:1) */
+  --borde-suave: #cbd5e1;       /* bordes decorativos (grupos de opciones) */
+  --gris-claro: #e2e8f0;        /* fondo de la barra de progreso y de los botones deshabilitados */
+  --azul-sobre-oscuro: #93c5fd; /* enlaces y contorno de foco sobre el encabezado y el pie */
+
+  /* Medidas: usar siempre las mismas mantiene el orden visual */
+  --radio: 16px;                /* esquinas redondeadas */
+  --radio-chico: 10px;
+  --espacio: 24px;              /* espacio estándar (padding de tarjetas) */
+  --sombra: 0 6px 22px rgba(15, 23, 42, 0.07);
+  --sombra-hover: 0 10px 28px rgba(15, 23, 42, 0.13);
+  --ancho-max: 1120px;          /* ancho máximo del contenido */
+}
+
+
+/* ---------- 2. BASE ---------- */
+
+/* Quitamos los márgenes y rellenos que trae el navegador.
+   box-sizing: border-box hace que el padding y el borde
+   cuenten DENTRO del ancho de la caja (así no se desbordan). */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;              /* 16px: tamaño base */
+  line-height: 1.65;
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+/* Las imágenes nunca pueden ser más anchas que su contenedor */
+img { max-width: 100%; height: auto; display: block; }
+
+/* Jerarquía de títulos: h1 > h2 > h3.
+   text-wrap: balance reparte las palabras para que el título no deje una palabra sola. */
+h1, h2 { text-wrap: balance; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.3rem, 7vw, 4.5rem); line-height: 1.05; margin-bottom: 18px; }
+h2 { font-size: clamp(1.65rem, 4vw, 2.2rem); line-height: 1.2; margin-bottom: 10px; }
+h3 { font-size: 1.15rem; line-height: 1.3; margin-bottom: 8px; }
+
+/* Texto de lectura: líneas no demasiado largas */
+p { max-width: 65ch; }
+
+/* Para ver con qué elemento se navega con el teclado */
+:focus-visible { outline: 3px solid var(--azul); outline-offset: 2px; }
+/* Sobre fondos oscuros (encabezado y pie) el contorno azul no se vería: se usa el azul claro */
+header :focus-visible, footer :focus-visible { outline-color: var(--azul-sobre-oscuro); }
+
+
+/* ---------- 3. ENCABEZADO ---------- */
+header {
+  display: flex;
+  align-items: center;          /* centra el contenido en vertical */
+  min-height: 68vh;
+  padding: 64px 8%;
+  background: linear-gradient(135deg, #101828, var(--azul));
+  color: var(--blanco);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Símbolo decorativo de fondo (muy suave, a la derecha, lejos del texto) */
+header::after {
+  content: "</>" / "";          /* lo que va después de la barra es el texto alternativo: vacío = solo decoración */
+  position: absolute;
+  right: 5%;
+  bottom: -35px;
+  font-size: 180px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.05);
+}
+
+.hero { max-width: 850px; position: relative; z-index: 1; }
+
+/* Logo + etiqueta del grupo, uno al lado del otro (FLEXBOX) */
+.hero-marca {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.logo { width: 64px; height: 64px; }
+
+.tag {
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+.hero p { font-size: 1.2rem; color: #dbeafe; }
+
+/* Encabezado más bajo para la segunda página */
+header.header-corto { min-height: auto; padding: 52px 8%; }
+header.header-corto h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); }
+
+/* Botones del encabezado, uno al lado del otro (FLEXBOX).
+   El espacio de arriba lo pone el contenedor, no cada botón. */
+.hero-botones { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+.hero-botones .btn { margin-top: 0; }
+
+
+/* ---------- 4. BOTONES ---------- */
+.btn,
+.btn-azul,
+.btn-claro {
+  display: inline-block;
+  padding: 13px 24px;
+  border-radius: var(--radio-chico);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Botón blanco (sobre el fondo azul del encabezado) */
+.btn {
+  margin-top: 28px;
+  background: var(--blanco);
+  color: var(--azul);
+  border: 2px solid var(--blanco);
+}
+/* Segundo botón del encabezado: solo con borde (y el primero, al pasar el mouse) */
+.btn:hover,
+.btn-borde { background: transparent; color: var(--blanco); }
+.btn-borde:hover { background: var(--blanco); color: var(--azul); }
+
+/* Botón azul (sobre fondo claro): lo usan el quiz, el formulario y la navegación */
+.btn-azul {
+  margin-top: 18px;
+  background: var(--azul);
+  color: var(--blanco);
+  border: 2px solid var(--azul);
+}
+.btn-azul:hover { background: var(--azul-oscuro); border-color: var(--azul-oscuro); }
+
+/* Botón con borde azul (acción secundaria sobre fondo claro) */
+.btn-claro {
+  margin-top: 18px;
+  background: transparent;
+  color: var(--azul);
+  border: 2px solid var(--azul);
+}
+.btn-claro:hover { background: var(--azul-claro); }
+
+/* Botón deshabilitado: se ve apagado y no reacciona al mouse */
+.btn-azul:disabled,
+.btn-azul:disabled:hover { background: var(--gris-claro); border-color: var(--gris-claro); color: #475569; cursor: not-allowed; }
+
+
+/* ---------- 5. MENÚ ---------- */
+nav {
+  position: sticky;             /* se queda arriba al bajar */
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.96);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--borde);
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+}
+
+/* FLEXBOX: marca a la izquierda y enlaces a la derecha */
+.nav-contenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 1320px;            /* marca + 10 enlaces necesitan 1240px: así sobra holgura */
+  margin: 0 auto;
+  padding: 8px 16px;
+}
+
+.nav-marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  color: var(--titulo);
+  font-weight: bold;
+  text-decoration: none;
+}
+.nav-marca img { width: 32px; height: 32px; }
+
+/* Los enlaces del menú en fila (FLEXBOX) */
+nav ul {
+  display: flex;
+  flex-wrap: wrap;              /* si no entran, pasan a la línea de abajo */
+  justify-content: flex-end;
+  gap: 2px;
+  list-style: none;
+}
+
+nav ul a {
+  display: block;
+  padding: 8px 11px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: #334155;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+nav ul a:hover { background: var(--azul-claro); color: var(--azul); border-color: var(--azul-borde); }
+
+/* El enlace a la OTRA página se destaca: es el que cambia de página */
+nav ul a.nav-pagina { background: var(--azul); color: var(--blanco); border-color: var(--azul); }
+nav ul a.nav-pagina:hover { background: var(--azul-oscuro); border-color: var(--azul-oscuro); color: var(--blanco); }
+
+
+/* ---------- 6. CONTENIDO Y SECCIONES ---------- */
+
+/* margin: 0 auto  →  centra el contenido en pantallas grandes */
+main {
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: 16px 20px 72px;
+}
+
+/* padding: aire DENTRO de la sección, arriba y abajo.
+   Una línea fina separa cada sección de la anterior. */
+section {
+  padding: 56px 0;
+  scroll-margin-top: 64px;      /* para que el menú no tape el título al hacer clic */
+}
+section + section { border-top: 1px solid var(--borde); }
+
+/* Desde 769px el menú es fijo: al enfocar con el teclado o saltar a una sección,
+   la página deja ese espacio libre arriba para que el menú no tape nada */
+@media (min-width: 769px) {
+  html { scroll-padding-top: 112px; }   /* el menú llega a medir 107px cuando se parte en 2 filas */
+  section { scroll-margin-top: 0; }     /* ahora lo resuelve scroll-padding */
+}
+@media (min-width: 1241px) { html { scroll-padding-top: 76px; } }   /* aquí cabe en una fila (59px) */
+
+/* Encabezado de cada sección: etiqueta, título y bajada */
+.section-title { margin-bottom: 32px; }
+.section-title span {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 12px;
+  background: var(--azul-claro);
+  border: 1px solid var(--azul-borde);
+  border-radius: 999px;
+  color: var(--azul);
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+}
+.section-title p { color: var(--gris); font-size: 1.05rem; }
+
+/* Título de cada concepto: va ANTES de la imagen y su explicación */
+.concepto,
+.subtitulo {
+  margin: 44px 0 16px;
+  padding-left: 12px;
+  border-left: 4px solid var(--azul);
+  font-size: 1.3rem;
+}
+.section-title + .concepto { margin-top: 0; }
+
+/* Enlace "Profundizar" al final de cada sección */
+.ver-mas { margin-top: 26px; }
+.ver-mas a { color: var(--azul); font-weight: bold; text-decoration: none; border-bottom: 2px solid var(--azul-borde); }
+.ver-mas a:hover { border-bottom-color: var(--azul); }
+
+
+/* ---------- 7. TARJETAS ---------- */
+
+/* GRID: las tarjetas se acomodan en filas y columnas.
+   auto-fit + minmax: entran tantas columnas de al menos 240px como
+   haya lugar. gap = espacio entre tarjetas. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--espacio);
+}
+
+/* Cada tarjeta usa el MODELO DE CAJAS:
+   padding → espacio INTERNO (entre el borde y el texto)
+   border  → línea que rodea la caja (arriba más gruesa y azul)
+   margin  → espacio EXTERNO (lo usamos en las secciones y en los textos) */
+.card {
+  display: flex;                /* FLEXBOX dentro de la tarjeta, en columna */
+  flex-direction: column;
+  padding: var(--espacio);
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-top: 4px solid var(--azul);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  transition: box-shadow 0.2s;  /* solo cambia la sombra: sin movimientos bruscos */
+}
+.card:hover { box-shadow: var(--sombra-hover); }
+
+.icon { font-size: 2.2rem; line-height: 1; margin-bottom: 12px; }
+
+/* Título con emoji: FLEXBOX para alinear el emoji con el texto */
+.card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: var(--titulo);
+}
+.card p { margin-bottom: 14px; color: var(--texto-suave); font-size: 0.95rem; }
+.card p:last-child { margin-bottom: 0; }
+
+/* margin-top: auto empuja el ejemplo al fondo, así todas las
+   tarjetas de una fila quedan alineadas abajo */
+.examples {
+  margin-top: auto;
+  padding: 10px 14px;
+  background: var(--azul-claro);
+  border-left: 4px solid var(--azul);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--azul-oscuro);
+}
+
+.tip {
+  margin-top: 32px;
+  padding: 22px 24px;
+  background: #111827;
+  color: #e5e7eb;
+  border-left: 5px solid #60a5fa;
+  border-radius: var(--radio);
+}
+.tip strong { color: var(--blanco); }
+
+
+/* ---------- 8. IMÁGENES Y BLOQUES CON IMAGEN ---------- */
+
+/* Figura (esquema o diagrama) con su pie de imagen */
+.figura {
+  padding: 20px;
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  text-align: center;
+}
+.figura img { margin: 0 auto; }   /* centra la imagen */
+.figura figcaption {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid var(--borde);
+  font-size: 0.9rem;
+  color: var(--gris);
+}
+
+/* Foto dentro de una tarjeta. width: 100% la adapta al ancho de la tarjeta;
+   aspect-ratio: 4 / 3 les da a todas la misma forma; object-fit: cover
+   recorta lo que sobra en lugar de deformar la foto. */
+.foto { margin-bottom: 16px; }
+.foto img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-chico);
+  background: var(--gris-claro);
+}
+.foto figcaption,
+.resultado figcaption { margin-top: 8px; font-size: 0.9rem; color: var(--gris); }
+
+/* GRID de 2 columnas: imagen a un lado y explicación al otro.
+   minmax(0, 1fr) evita que una imagen ancha agrande la columna. */
+.explica {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+}
+.explica .texto p { margin-top: 12px; }
+.explica .examples { margin-top: 16px; }
+.explica ul, .explica ol { margin-top: 10px; padding-left: 1.3rem; }
+.explica li { margin-bottom: 8px; padding-left: 4px; }
+.explica li::marker { color: var(--azul); font-weight: bold; }
+
+
+/* ---------- 9. TABLAS ---------- */
+
+/* En compu es una tabla normal. En pantallas chicas (ver sección 14)
+   cada fila se convierte en una "tarjeta" para que se lea sin deslizar. */
+.tabla-wrap {
+  margin-top: 32px;
+  overflow-x: auto;
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 0.95rem; }
+caption { padding: 18px 18px 12px; text-align: left; font-size: 1.05rem; font-weight: bold; color: var(--titulo); }
+th, td { padding: 13px 16px; text-align: left; vertical-align: top; }
+thead th { background: var(--azul); color: var(--blanco); font-size: 0.9rem; letter-spacing: 0.02em; }
+tbody th { width: 18%; background: var(--azul-claro); color: var(--azul-oscuro); }
+td { color: var(--texto-suave); }
+tbody tr { border-top: 1px solid var(--borde); }
+tbody tr:nth-child(even) td { background: #f8fafc; }     /* filas alternadas: se lee mejor */
+tbody tr:hover td { background: #eef4ff; }
+
+
+/* ---------- 10. QUIZ ---------- */
+[hidden] { display: none !important; }
+
+.quiz {
+  padding: 32px;
+  background: linear-gradient(135deg, #dbeafe, #eef2ff);
+  border: 1px solid var(--azul-borde);
+  border-radius: 20px;
+}
+.progreso { margin-bottom: 8px; font-size: 0.9rem; font-weight: bold; color: var(--azul); }
+.question { margin-bottom: 18px; font-size: 1.2rem; font-weight: bold; }
+
+/* GRID: las 4 opciones en 2 columnas (en celular pasan a 1) */
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.options.espera { pointer-events: none; }   /* 0,5 s tras mostrar una pregunta: evita responder con un doble toque */
+.option {
+  padding: 14px;
+  background: var(--blanco);
+  color: var(--texto);
+  border: 2px solid var(--borde-campo);
+  border-radius: var(--radio-chico);
+  font-family: inherit;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+}
+.option:hover:not(:disabled) { border-color: var(--azul); }
+.option:disabled { cursor: default; }
+.option.correcta { background: var(--verde-claro); border-color: #16a34a; color: var(--verde); }
+.option.incorrecta { background: var(--rojo-claro); border-color: #dc2626; color: #991b1b; }
+
+#quiz-resultado { margin-top: 16px; min-height: 1.6em; font-weight: bold; }
+.resultado-ok { color: var(--verde); }
+.resultado-mal { color: var(--rojo); }
+
+.nota-final { padding: 10px 0; text-align: center; }
+.nota-final h3 { font-size: 1.5rem; color: var(--titulo); }
+.nota-final .nota { margin: 0 auto; font-size: 4rem; font-weight: bold; line-height: 1.2; color: var(--azul); }
+.nota-final .nota small { font-size: 1.75rem; color: var(--gris); }
+.nota-final p { margin: 6px auto 0; }
+
+
+/* ---------- 11. FORMULARIO (solo demostración) ---------- */
+.aviso-demo {
+  max-width: 720px;
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  background: #fef9c3;
+  border: 1px solid #fde047;
+  border-radius: 12px;
+  color: #713f12;
+  font-size: 0.9rem;
+}
+
+/* La caja del formulario usa padding (interior), border y max-width */
+.formulario {
+  max-width: 720px;
+  padding: 32px;
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-top: 4px solid var(--azul);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.campo { margin-bottom: 18px; }
+.campo label,
+.formulario legend,
+.buscador label { display: block; margin-bottom: 6px; font-weight: bold; color: var(--titulo); }
+
+/* width: 100% → los campos ocupan todo el ancho de la caja, también en celular.
+   font-size: 1rem → letra cómoda de leer (y el celular no hace zoom solo). */
+.campo select,
+.campo textarea,
+.buscador-fila input {
+  width: 100%;
+  padding: 12px;
+  background: var(--blanco);
+  color: var(--texto);
+  border: 2px solid var(--borde-campo);
+  border-radius: var(--radio-chico);
+  font-family: inherit;
+  font-size: 1rem;
+}
+.campo select:focus,
+.campo textarea:focus,
+.buscador-fila input:focus { border-color: var(--azul); }
+
+.formulario fieldset { margin-bottom: 18px; padding: 12px 14px 6px; border: 2px solid var(--borde-suave); border-radius: var(--radio-chico); }
+
+/* FLEXBOX: la casilla (o el botón de opción) y su texto, alineados en una fila */
+.opcion { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.opcion input { width: 20px; height: 20px; flex-shrink: 0; }
+.opcion label { margin: 0; font-weight: normal; }
+
+.ayuda { margin-top: 4px; font-size: 0.9rem; color: var(--gris); }
+#mensaje-form { margin-top: 16px; min-height: 1.6em; font-weight: bold; color: var(--verde); }
+#mensaje-form.resultado-mal { color: var(--rojo); }   /* aviso si se escribió un dato personal */
+
+
+/* ---------- 12. NAVEGACIÓN ENTRE PÁGINAS ---------- */
+
+/* Cuadro al final de cada página: dice a dónde ir ahora.
+   FLEXBOX: el texto a la izquierda y los botones a la derecha. */
+.siguiente {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 56px;
+  padding: 28px 32px;
+  background: linear-gradient(135deg, var(--azul-claro), #e0e7ff);
+  border: 1px solid var(--azul-borde);
+  border-radius: 20px;
+}
+.siguiente h2 { margin-bottom: 4px; font-size: 1.3rem; line-height: 1.3; letter-spacing: normal; text-wrap: wrap; color: var(--titulo); }
+.siguiente p { color: var(--texto-suave); }
+.siguiente-botones { display: flex; flex-wrap: wrap; gap: 12px; flex-shrink: 0; }
+.siguiente .btn-azul, .siguiente .btn-claro { margin-top: 0; }
+
+
+/* ---------- 13. PIE DE PÁGINA ---------- */
+footer {
+  padding: 48px 20px 32px;
+  background: var(--fondo-oscuro);
+  border-top: 4px solid var(--azul);
+  color: #cbd5e1;
+}
+footer a { color: var(--azul-sobre-oscuro); }
+footer h2, footer h3 { color: var(--blanco); }
+footer h2 { margin-bottom: 8px; font-size: 1.15rem; line-height: 1.3; letter-spacing: normal; text-wrap: wrap; }
+footer h3 { margin-bottom: 10px; font-size: 1rem; line-height: inherit; }
+
+/* GRID de 3 columnas: marca, navegación e imágenes */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1.5fr;
+  gap: 32px;
+  max-width: calc(var(--ancho-max) - 40px);   /* mismo ancho útil que el contenido principal */
+  margin: 0 auto;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 0; }
+.footer-col a { display: inline-block; padding: 4px 0; }   /* enlace de 34px de alto (el mínimo AA es 24px) */
+
+/* Créditos de las imágenes (se abren con un clic) */
+.creditos { font-size: 0.9rem; }
+.creditos summary { cursor: pointer; padding: 4px 0; color: var(--azul-sobre-oscuro); }
+.creditos ul { margin-top: 10px; padding-left: 1.25rem; list-style: disc; }
+.creditos li { margin-bottom: 6px; }
+
+.team {
+  max-width: calc(var(--ancho-max) - 40px);
+  margin: 32px auto 0;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+
+/* ---------- 14. RESPONSIVE (MEDIA QUERIES) ----------
+   Una media query aplica sus reglas SOLO cuando la pantalla
+   cumple la condición. Orden: de más grande a más chico. */
+
+/* PANTALLAS MEDIANAS (hasta 1300px): el menú ya no tiene lugar para la marca */
+@media (max-width: 1300px) {
+  .nav-marca { display: none; }
+  .nav-contenido { justify-content: center; }
+  nav ul { justify-content: center; }
+}
+
+/* TABLET (hasta 1024px): tarjetas en 2 columnas.
+   Los enlaces del menú miden al menos 44px de alto para que sean fáciles de tocar. */
+@media (max-width: 1024px) {
+  main { padding: 16px 24px 64px; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  nav ul a { display: flex; align-items: center; min-height: 44px; }
+}
+
+/* Pantallas bajas (por ejemplo, un celular acostado): el menú no queda fijo
+   porque taparía demasiado contenido */
+@media (max-height: 520px) {
+  nav { position: static; }
+}
+
+/* TABLET CHICA Y TELÉFONO (hasta 768px) */
+@media (max-width: 768px) {
+  header { min-height: auto; padding: 48px 6%; }
+  header::after { display: none; }       /* el símbolo de fondo molesta en pantallas chicas */
+  .hero p { font-size: 1.05rem; }
+
+  /* Menú: ya no queda fijo (ocuparía demasiado espacio) */
+  nav { position: static; }
+  .nav-contenido { padding: 8px; }
+  nav ul { gap: 4px; }
+  nav ul a { padding: 6px 12px; font-size: 0.88rem; }
+
+  main { padding: 8px 16px 56px; }
+  section { padding: 40px 0; }
+  .section-title { margin-bottom: 24px; }
+
+  .quiz { padding: 20px; }
+  .formulario { padding: 20px; }
+  .explica { grid-template-columns: 1fr; gap: 20px; }   /* imagen arriba, texto abajo */
+  .options { grid-template-columns: 1fr; }              /* una opción por fila */
+  .figura { padding: 14px; }
+
+  .siguiente { flex-direction: column; align-items: flex-start; padding: 24px 20px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+
+  /* TABLA en pantallas chicas: cada fila pasa a ser una tarjeta.
+     Cada dato muestra arriba su título (viene del atributo data-label). */
+  table { min-width: 0; }
+  thead {                                /* ocultamos los encabezados, pero siguen existiendo */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  table, tbody, tr, th, td { display: block; }
+  tbody tr {
+    margin: 14px;
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  tbody th { width: auto; font-size: 1.1rem; }
+  td { padding: 10px 16px; border-top: 1px solid var(--borde); }
+  tbody tr:nth-child(even) td, tbody tr:hover td { background: var(--blanco); }
+  td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--azul-oscuro);
+  }
+}
+
+/* TELÉFONO (hasta 600px): una tarjeta por fila y botones de ancho completo */
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+  .card { padding: 20px; }
+  .btn, .btn-azul, .btn-claro { display: block; width: 100%; }
+  .hero-botones, .siguiente-botones { width: 100%; }
+  .siguiente-botones { flex-direction: column; }
+  .nota-final .nota { font-size: 3.25rem; }
+}
+
+/* Pantallas táctiles (celular y tablet): los controles miden al menos 44px de alto */
+@media (pointer: coarse) {
+  .chips button { min-height: 44px; }
+  .opcion label { flex: 1; display: flex; align-items: center; min-height: 44px; }   /* tocar la etiqueta marca la opción */
+  nav ul a { min-width: 44px; justify-content: center; }
+  .creditos summary { display: flex; align-items: center; min-height: 44px; }
+  .footer-col a { padding: 9px 0; }
+}
+
+/* Si la persona pidió "menos movimiento" en su dispositivo, lo respetamos */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .card { transition: none; }
+}
+
+
+/* ---------- 15. BUSCADOR DE CONCEPTOS ---------- */
+/* FLEXBOX: el campo ocupa el espacio libre y el botón queda al lado (o abajo si no entra) */
+.buscador-fila { display: flex; flex-wrap: wrap; gap: 10px; }
+.buscador-fila input { flex: 1 1 220px; min-width: 0; }   /* el resto de su estilo está con los demás campos (sección 11) */
+.buscador-fila .btn-claro { margin-top: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.chips button { padding: 6px 14px; background: var(--azul-claro); color: var(--azul-oscuro); border: 1px solid var(--azul-borde); border-radius: 999px; font-family: inherit; font-size: 0.9rem; font-weight: bold; cursor: pointer; }
+.chips button:hover { background: var(--azul); color: var(--blanco); }
+.buscador-estado { margin-top: 16px; margin-bottom: 12px; min-height: 1.6em; font-weight: bold; color: var(--azul-oscuro); overflow-wrap: anywhere; }   /* un término largo sin espacios no ensancha la página */
+.buscador-estado.sin-resultados { color: var(--rojo); }
+
+/* GRID de resultados: una tarjeta por concepto; la imagen a un lado y el texto al otro */
+#buscador-resultados { display: grid; gap: 20px; }
+.resultado { display: grid; grid-template-columns: minmax(0, 240px) minmax(0, 1fr); gap: 24px; padding: var(--espacio); background: var(--blanco); border: 1px solid var(--borde); border-top: 4px solid var(--azul); border-radius: var(--radio); box-shadow: var(--sombra); }
+.resultado.sin-imagen { grid-template-columns: minmax(0, 1fr); }
+.resultado:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
+/* height: auto + los atributos width/height del HTML → la imagen mantiene su proporción y no se recorta */
+.resultado figure img { width: 100%; height: auto; border: 1px solid var(--borde); border-radius: var(--radio-chico); background: var(--blanco); }
+.resultado h3 { margin-bottom: 4px; }
+.resultado dt { margin-top: 12px; font-weight: bold; color: var(--azul-oscuro); }
+.resultado dd { margin: 2px 0 0; color: var(--texto-suave); }
+.resultado .mas { display: inline-block; margin-top: 14px; font-weight: bold; color: var(--azul); text-decoration: none; }
+.resultado .mas:hover { text-decoration: underline; }
+@media (max-width: 700px) {
+  .resultado { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .resultado figure { width: 100%; max-width: 360px; justify-self: center; }   /* centrada cuando sobra espacio */
+}
+
+
+/* ---------- 16. QUIZ AMPLIADO: barra de progreso y resultado ---------- */
+.barra { height: 12px; margin-bottom: 18px; background: var(--blanco); border: 1px solid var(--azul-borde); border-radius: 999px; overflow: hidden; }
+.barra-relleno { width: 0; height: 100%; background: var(--azul); border-radius: 999px; transition: width 0.3s ease; }
+@media (prefers-reduced-motion: reduce) { .barra-relleno { transition: none; } }
+.nota-final .porcentaje { font-size: 1.25rem; font-weight: bold; color: var(--azul-oscuro); }
+.nota-final .repasar { font-size: 0.95rem; color: var(--texto-suave); }
+.nota-botones { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+
+/* ---------- 17. JUEGO «IDENTIFICÁ EL COMPONENTE» ---------- */
+.juego { padding: 32px; background: linear-gradient(135deg, #ecfeff, var(--azul-claro)); border: 1px solid var(--azul-borde); border-radius: 20px; }
+/* GRID: la imagen a un lado y la pregunta al otro (en celular, una arriba de la otra) */
+.juego-cuerpo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 28px; align-items: center; }
+.juego-figura { margin: 0; padding: 14px; background: var(--blanco); border: 1px solid var(--borde); border-radius: var(--radio); box-shadow: var(--sombra); }
+/* width/height automáticos + max-height: la imagen se achica sin deformarse */
+.juego-figura img { width: auto; max-width: 100%; height: auto; max-height: 320px; margin: 0 auto; object-fit: contain; }
+.juego-texto h3 { margin-bottom: 14px; font-size: 1.2rem; color: var(--titulo); }
+.juego-opciones { display: grid; gap: 10px; }
+.juego-opciones .option { min-height: 48px; }
+.option.elegida { background: var(--azul-claro); border-color: var(--azul); box-shadow: inset 0 0 0 1px var(--azul); }
+/* además del color, una marca ✓ / ✗ para quien no distingue colores */
+.juego-opciones .option.correcta::after { content: " ✓"; font-weight: bold; }
+.juego-opciones .option.incorrecta::after { content: " ✗"; font-weight: bold; }
+.juego-texto .btn-azul { margin-top: 16px; }
+.juego-explicacion { margin-top: 16px; padding: 12px 16px; background: var(--blanco); border-left: 4px solid var(--azul); border-radius: 8px; }
+.juego-explicacion:empty { display: none; }
+.juego-explicacion.ok { border-left-color: #16a34a; }
+.juego-explicacion.mal { border-left-color: #dc2626; }
+.juego-explicacion p { margin: 0; }
+.juego-explicacion p + p { margin-top: 6px; color: var(--texto-suave); }
+.juego-explicacion [class^="resultado-"] { font-weight: bold; }
+@media (max-width: 768px) {
+  .juego { padding: 20px; }
+  .juego-cuerpo { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .juego-figura img { max-height: 240px; }
+}
+@media (max-width: 600px) {
+  .juego-texto .btn-azul { width: 100%; }
+}
+
+
+/* ---------- 18. PÁGINA DE JUEGOS ---------- */
+/* Pantalla de inicio de cada juego: un texto breve y el botón para comenzar */
+.juego-inicio { padding: 8px 0 16px; text-align: center; }
+.juego-inicio p { margin: 0 auto; color: var(--texto-suave); }
+.card .btn-azul { margin-top: 4px; }
+@media (max-width: 600px) { .card .btn-azul { width: 100%; } }

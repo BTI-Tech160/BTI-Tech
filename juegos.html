@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juegos — BTI Tech</title>
+<meta name="description" content="Dos juegos para repasar tecnología: un quiz de 10 preguntas e «Identificá el componente», con explicaciones y una nota de 0 a 10.">
+<link rel="icon" type="image/png" href="img/logo-bti-tech.png">
+<link rel="stylesheet" href="css/styles.css">
+<noscript><style>.juego-inicio { display: none; }</style></noscript>
+<script src="js/juegos.js" defer></script>
+</head>
+<body>
+
+<header class="header-corto" id="inicio">
+  <div class="hero">
+    <div class="hero-marca">
+      <img class="logo" src="img/logo-bti-tech.png" alt="Logotipo de BTI Tech: cuadrado azul con los símbolos de código y las letras BTI" width="64" height="64">
+      <div class="tag">GRUPO 7 · BTI Tech</div>
+    </div>
+    <h1>Juegos tecnológicos</h1>
+    <p>Poné a prueba lo que aprendiste con dos desafíos: un quiz de 10 preguntas y un juego para reconocer componentes en imágenes.</p>
+    <div class="hero-botones">
+      <a class="btn" href="index.html">← Volver al inicio</a>
+      <a class="btn btn-borde" href="tecnologia.html">Ir a Tecnología →</a>
+    </div>
+  </div>
+</header>
+
+<nav aria-label="Menú principal">
+  <div class="nav-contenido">
+    <a class="nav-marca" href="index.html"><img src="img/logo-bti-tech.png" alt="" width="32" height="32"><span>BTI Tech</span></a>
+    <ul>
+      <li><a class="nav-pagina" href="index.html">← Inicio</a></li>
+      <li><a href="#desafios">Los desafíos</a></li>
+      <li><a href="#quiz">Quiz tecnológico</a></li>
+      <li><a href="#juego">Identificá el componente</a></li>
+      <li><a class="nav-pagina" href="tecnologia.html">Tecnología →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+<section id="desafios">
+  <div class="section-title">
+    <span>DESAFÍOS</span>
+    <h2>Jugá y repasá</h2>
+    <p>Son dos juegos cortos, de 10 desafíos cada uno. Cada respuesta tiene su explicación y al final recibís una nota de 0 a 10. No hace falta escribir tu nombre ni ningún dato personal.</p>
+  </div>
+  <div class="grid">
+    <article class="card"><div class="icon" aria-hidden="true">❓</div><h3>Juego 1: Quiz tecnológico</h3><p>10 preguntas de opción múltiple sobre hardware, software, almacenamiento, sistemas operativos, IA y seguridad digital.</p><p><a class="btn-azul" href="#quiz">Ir al quiz ↓</a></p></article>
+    <article class="card"><div class="icon" aria-hidden="true">🖼️</div><h3>Juego 2: Identificá el componente</h3><p>Mirá una imagen, elegí la respuesta y confirmala. Sirve para reconocer piezas y entender para qué se usan.</p><p><a class="btn-azul" href="#juego">Ir al juego ↓</a></p></article>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="section-title">
+    <span>JUEGO 1</span>
+    <h2>Quiz tecnológico</h2>
+    <p>Respondé 10 preguntas y conseguí tu nota final de 0 a 10. Las preguntas cambian de orden en cada partida.</p>
+  </div>
+  <div class="quiz">
+    <div class="juego-inicio" id="quiz-inicio">
+      <p>Cuando estés listo, tocá el botón. Tenés una sola respuesta por pregunta y después ves la explicación.</p>
+      <button type="button" class="btn-azul" id="quiz-comenzar">Comenzar el quiz</button>
+    </div>
+    <div id="quiz-jugando" hidden>
+      <p class="progreso" id="quiz-progreso"></p>
+      <div class="barra" id="quiz-barra-caja" role="progressbar" aria-label="Progreso de quiz" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0"><div class="barra-relleno" id="quiz-barra"></div></div>
+      <div class="question" id="quiz-pregunta" tabindex="-1"></div>
+      <div class="options" id="quiz-opciones" role="group" aria-labelledby="quiz-pregunta"></div>
+      <div id="quiz-resultado" aria-live="polite"></div>
+      <button type="button" class="btn-azul" id="quiz-siguiente" hidden>Siguiente pregunta →</button>
+    </div>
+    <div class="nota-final" id="quiz-final" tabindex="-1" hidden>
+      <h3>Nota final</h3>
+      <p class="nota"><span id="quiz-nota-numero">0</span><small> / 10</small></p>
+      <p class="porcentaje" id="quiz-nota-porcentaje"></p>
+      <p id="quiz-nota-mensaje"></p>
+      <p class="repasar" id="quiz-nota-repasar"></p>
+      <div class="nota-botones">
+        <button type="button" class="btn-azul" id="quiz-reiniciar">Volver a jugar</button>
+        <a class="btn-claro" href="#juego">Probar «Identificá el componente» →</a>
+        <a class="btn-claro" href="tecnologia.html">Repasar en Tecnología →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="juego">
+  <div class="section-title">
+    <span>JUEGO 2</span>
+    <h2>Identificá el componente</h2>
+    <p>Mirá la imagen, elegí una respuesta y confirmala. Son 10 desafíos, cada uno con su explicación, y al final recibís una nota de 0 a 10.</p>
+  </div>
+  <div class="juego">
+    <div class="juego-inicio" id="juego-inicio">
+      <p>Cuando estés listo, tocá el botón. Los desafíos cambian de orden en cada partida.</p>
+      <button type="button" class="btn-azul" id="juego-comenzar">Comenzar el juego</button>
+    </div>
+    <div id="juego-jugando" hidden>
+      <p class="progreso" id="juego-progreso"></p>
+      <div class="barra" id="juego-barra-caja" role="progressbar" aria-label="Progreso de juego" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0"><div class="barra-relleno" id="juego-barra"></div></div>
+      <div class="juego-cuerpo">
+        <figure class="juego-figura"><img id="juego-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" width="800" height="600"></figure>
+        <div class="juego-texto">
+          <h3 id="juego-pregunta" tabindex="-1"></h3>
+          <div class="juego-opciones" id="juego-opciones" role="group" aria-labelledby="juego-pregunta"></div>
+          <p class="ayuda" id="juego-aviso">Elegí una respuesta y después tocá «Confirmar respuesta».</p>
+          <button type="button" class="btn-azul" id="juego-confirmar" disabled>Confirmar respuesta</button>
+          <div id="juego-explicacion" aria-live="polite"></div>
+          <button type="button" class="btn-azul" id="juego-siguiente" hidden>Siguiente desafío →</button>
+        </div>
+      </div>
+    </div>
+    <div class="nota-final" id="juego-final" tabindex="-1" hidden>
+      <h3>Resultado del juego</h3>
+      <p class="nota"><span id="juego-nota-numero">0</span><small> / 10</small></p>
+      <p class="porcentaje" id="juego-nota-porcentaje"></p>
+      <p id="juego-nota-mensaje"></p>
+      <p class="repasar" id="juego-nota-repasar"></p>
+      <div class="nota-botones">
+        <button type="button" class="btn-azul" id="juego-reiniciar">Volver a jugar</button>
+        <a class="btn-claro" href="#quiz">Probar el quiz →</a>
+        <a class="btn-claro" href="tecnologia.html">Repasar en Tecnología →</a>
+      </div>
+    </div>
+  </div>
+</section>
+<noscript><p class="ayuda">Los juegos necesitan JavaScript. Podés repasar los mismos temas en la página de Tecnología.</p></noscript>
+
+<aside class="siguiente" aria-label="Siguiente paso">
+  <div>
+    <h2>¿Querés seguir aprendiendo?</h2>
+    <p>Volvé al inicio para usar el buscador de conceptos o leé la guía en profundidad.</p>
+  </div>
+  <div class="siguiente-botones">
+    <a class="btn-azul" href="tecnologia.html">Ir a Tecnología →</a>
+    <a class="btn-claro" href="index.html">← Volver al inicio</a>
+  </div>
+</aside>
+
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h2>BTI Tech</h2>
+      <p>Guía tecnológica para estudiantes de la Feria de Informática.</p>
+    </div>
+    <div class="footer-col">
+      <h3>Navegación</h3>
+      <ul>
+        <li><a href="index.html">Página principal</a></li>
+        <li><a href="tecnologia.html">Tecnología en profundidad</a></li>
+        <li><a href="#quiz">Quiz tecnológico</a></li>
+        <li><a href="#juego">Identificá el componente</a></li>
+        <li><a href="#inicio">↑ Volver arriba</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Imágenes</h3>
+    <details class="creditos" id="creditos">
+      <summary>Créditos de las imágenes</summary>
+      <ul>
+        <li>Esquemas (periféricos, partes de la computadora, funcionamiento de la computadora, capas de software, sistemas operativos, inteligencia artificial y phishing): ilustraciones originales creadas para este proyecto con asistencia de IA, sin material de terceros.</li>
+        <li>Logotipo de BTI Tech: diseño original creado para este proyecto con asistencia de IA, sin material de terceros.</li>
+        <li>Fotografías de componentes (procesador CPU, memoria RAM, tarjeta gráfica GPU, disco duro HDD, unidad SSD SATA y unidad SSD M.2 NVMe): material visual de referencia seleccionado por el Grupo 7 y utilizado con fines exclusivamente educativos, académicos y demostrativos (1.º BTI — Feria de Informática), sin fines de lucro ni uso comercial.</li>
+      </ul>
+    </details>
+    </div>
+  </div>
+  <div class="team">Grupo 7 · Dahiana · Luz María · Alejandra</div>
+</footer>
+
+</body>
+</html>

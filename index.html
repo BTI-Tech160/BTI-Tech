@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BTI Tech — Guía tecnológica para estudiantes</title>
+<meta name="description" content="BTI Tech es una guía tecnológica para estudiantes: buscador de conceptos, hardware, software, almacenamiento, sistemas operativos, inteligencia artificial y seguridad digital.">
+<link rel="icon" type="image/png" href="img/logo-bti-tech.png">
+<link rel="stylesheet" href="css/styles.css">
+<noscript><style>#buscador-form, #form-sugerencia { display: none; }</style></noscript>
+<script src="js/app.js" defer></script>
+<script src="js/buscador.js" defer></script>
+</head>
+<body>
+
+<header id="inicio">
+  <div class="hero">
+    <div class="hero-marca">
+      <img class="logo" src="img/logo-bti-tech.png" alt="Logotipo de BTI Tech: cuadrado azul con los símbolos de código y las letras BTI" width="64" height="64">
+      <div class="tag">GRUPO 7 · BTI Tech</div>
+    </div>
+    <h1>Guía tecnológica para estudiantes</h1>
+    <p>Aprendé de forma sencilla sobre el hardware, el software, el almacenamiento, los sistemas operativos, la inteligencia artificial y la seguridad digital.</p>
+    <div class="hero-botones">
+      <a class="btn" href="#hardware">Comenzar a aprender ↓</a>
+      <a class="btn btn-borde" href="tecnologia.html">Profundizar en tecnología →</a>
+    </div>
+  </div>
+</header>
+
+<nav aria-label="Menú principal">
+  <div class="nav-contenido">
+    <a class="nav-marca" href="#inicio"><img src="img/logo-bti-tech.png" alt="" width="32" height="32"><span>BTI Tech</span></a>
+    <ul>
+      <li><a href="#buscador">Buscador</a></li>
+      <li><a href="#hardware">Hardware</a></li>
+      <li><a href="#software">Software</a></li>
+      <li><a href="#almacenamiento">Almacenamiento</a></li>
+      <li><a href="#sistemas">Sistemas operativos</a></li>
+      <li><a href="#ia">IA</a></li>
+      <li><a href="#seguridad">Seguridad digital</a></li>
+      <li><a href="#sugerencias">Sugerencias</a></li>
+      <li><a class="nav-pagina" href="tecnologia.html">Tecnología →</a></li>
+      <li><a class="nav-pagina" href="juegos.html">Juegos →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+<section id="buscador">
+  <div class="section-title">
+    <span>BUSCADOR</span>
+    <h2>Buscá un concepto</h2>
+    <p>Escribí una palabra, por ejemplo CPU, memoria, SSD o phishing, y mirá su definición, para qué sirve y un ejemplo.</p>
+  </div>
+  <form id="buscador-form" class="buscador" role="search" method="dialog" autocomplete="off">
+    <label for="buscador-input">Concepto tecnológico</label>
+    <div class="buscador-fila">
+      <input type="search" id="buscador-input" name="q" placeholder="Ej.: memoria, SSD, phishing…" spellcheck="false" aria-describedby="buscador-ayuda" aria-controls="buscador-resultados">
+      <button type="button" id="buscador-limpiar" class="btn-claro">Limpiar</button>
+    </div>
+    <p id="buscador-ayuda" class="ayuda">Da igual si escribís con mayúsculas, minúsculas o tildes. Con la flecha ↓ pasás a los resultados y con la tecla Esc borrás la búsqueda.</p>
+    <div id="buscador-sugerencias" class="chips" role="group" aria-label="Búsquedas sugeridas"></div>
+  </form>
+  <p id="buscador-estado" class="buscador-estado" role="status" aria-live="polite"></p>
+  <div id="buscador-resultados"></div>
+  <noscript><p class="ayuda">El buscador necesita JavaScript. Podés leer todos los conceptos en las secciones de más abajo.</p></noscript>
+</section>
+
+<section id="hardware">
+  <div class="section-title">
+    <span>01 · HARDWARE</span>
+    <h2>Las partes físicas</h2>
+    <p>Todo lo que podés tocar de una computadora o dispositivo.</p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <h3><span aria-hidden="true">🧠</span> Procesador (CPU)</h3>
+      <figure class="foto"><img src="img/cpu.jpg" alt="Fotografía de un procesador Intel Core i5 sostenido con una mano: un chip cuadrado y pequeño, con cubierta metálica gris" width="800" height="600" loading="lazy"><figcaption>Procesador (CPU) sostenido en la mano</figcaption></figure>
+      <p>Ejecuta instrucciones y realiza cálculos. Es una de las piezas principales del equipo.</p>
+      <div class="examples"><strong>Ejemplo cotidiano:</strong> cuando abrís un programa, la CPU ejecuta sus instrucciones. Modelos conocidos: Intel Core, AMD Ryzen.</div>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">🧩</span> Memoria RAM</h3>
+      <figure class="foto"><img src="img/ram.jpg" alt="Fotografía de varios módulos de memoria RAM instalados en las ranuras de una placa madre azul" width="800" height="600" loading="lazy"><figcaption>Módulos de memoria RAM instalados</figcaption></figure>
+      <p>Guarda de forma temporal los datos y programas que el equipo está usando. Al apagarlo, esa información se pierde.</p>
+      <div class="examples"><strong>Ejemplo cotidiano:</strong> si tenés el navegador y un documento abiertos a la vez, los dos están en la RAM.</div>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">🎮</span> Tarjeta gráfica</h3>
+      <figure class="foto"><img src="img/gpu.jpg" alt="Fotografía de una tarjeta gráfica dedicada con dos ventiladores y, en su lateral, salidas de video HDMI, VGA y DVI" width="800" height="600" loading="lazy"><figcaption>Tarjeta gráfica dedicada con dos ventiladores</figcaption></figure>
+      <p>Procesa imágenes, videos y gráficos para mostrarlos en la pantalla. También se la conoce como GPU.</p>
+      <div class="examples"><strong>Ejemplo cotidiano:</strong> al jugar o mirar un video, la GPU dibuja las imágenes que ves. Marcas conocidas: NVIDIA GeForce, AMD Radeon.</div>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">⌨️</span> Periféricos</h3>
+      <p>Permiten introducir o recibir información, como teclado, mouse, monitor y auriculares.</p>
+      <div class="examples"><strong>Ejemplo cotidiano:</strong> al escribir un mensaje usás el teclado (entrada) y lo leés en el monitor (salida).</div>
+    </article>
+  </div>
+  <p class="ver-mas"><a href="tecnologia.html#componentes">Profundizar en los componentes →</a></p>
+</section>
+
+<section id="software">
+  <div class="section-title">
+    <span>02 · SOFTWARE</span>
+    <h2>Lo que hace funcionar al equipo</h2>
+    <p>Son los programas e instrucciones que utiliza un dispositivo.</p>
+  </div>
+  <div class="grid">
+    <article class="card"><div class="icon" aria-hidden="true">📝</div><h3>Software de aplicación</h3><p>Programas que usamos para realizar tareas concretas.</p><div class="examples">Ejemplos: Word, navegador, reproductores.</div></article>
+    <article class="card"><div class="icon" aria-hidden="true">⚙️</div><h3>Software de sistema</h3><p>Administra los recursos del dispositivo y permite que otros programas funcionen.</p><div class="examples">Ejemplo: un sistema operativo.</div></article>
+  </div>
+  <div class="tip"><strong>💡 Hardware y software:</strong> el hardware es lo que se puede tocar; el software, no. Trabajan juntos: sin software el hardware no sabe qué hacer, y sin hardware el software no tiene dónde ejecutarse.</div>
+  <p class="ver-mas"><a href="tecnologia.html#software">Profundizar en la clasificación del software →</a></p>
+</section>
+
+<section id="almacenamiento">
+  <div class="section-title">
+    <span>03 · ALMACENAMIENTO</span>
+    <h2>¿Dónde se guardan los datos?</h2>
+    <p>Los dispositivos pueden almacenar información de diferentes maneras.</p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <h3><span aria-hidden="true">💾</span> HDD (disco duro)</h3>
+      <figure class="foto"><img src="img/hdd.jpg" alt="Fotografía de un disco duro (HDD) abierto, donde se ven el plato giratorio y el brazo lector" width="800" height="600" loading="lazy"><figcaption>Disco duro (HDD) abierto</figcaption></figure>
+      <p>Disco duro que utiliza piezas mecánicas para guardar información. Suele ofrecer bastante capacidad a un precio accesible.</p>
+      <div class="examples"><strong>Ejemplo cotidiano:</strong> una computadora de escritorio que guarda muchas fotos, videos y copias de seguridad.</div>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">⚡</span> SSD SATA</h3>
+      <figure class="foto"><img src="img/ssd-sata.jpg" alt="Imagen de un SSD de 2,5 pulgadas con su conector SATA a la izquierda y, apoyado encima, un SSD M.2 NVMe" width="800" height="600" loading="lazy"><figcaption>SSD SATA de 2,5 pulgadas (atrás) y SSD M.2 (adelante)</figcaption></figure>
+      <p>Utiliza memoria flash y no tiene partes móviles. Generalmente permite iniciar y abrir archivos más rápido.</p>
+      <div class="examples"><strong>Ejemplo cotidiano:</strong> una computadora que enciende y abre los programas en pocos segundos porque el sistema operativo está en un SSD.</div>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">⚡</span> SSD M.2</h3>
+      <figure class="foto"><img src="img/ssd-m2.jpg" alt="Fotografía de dos unidades SSD M.2 NVMe: placas alargadas con etiqueta y un conector dorado en un extremo" width="800" height="600" loading="lazy"><figcaption>SSD M.2 NVMe</figcaption></figure>
+      <p>Es un SSD con forma de placa pequeña y alargada, parecida a una barra de chicle. Se inserta directamente en una ranura de la placa madre, sin cables.</p>
+      <div class="examples"><strong>Ejemplo cotidiano:</strong> notebooks delgadas, donde casi no hay lugar para cajas ni cables.</div>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">☁️</span> Nube</h3>
+      <p>Permite guardar archivos en servidores accesibles mediante internet.</p>
+      <div class="examples"><strong>Ejemplo cotidiano:</strong> subir un trabajo a Google Drive y abrirlo desde el celular o desde otra computadora. También: OneDrive.</div>
+    </article>
+  </div>
+
+  <div class="tabla-wrap">
+    <table>
+      <caption>Tabla comparativa: HDD, SSD y nube</caption>
+      <thead>
+        <tr>
+          <th scope="col">Tipo</th>
+          <th scope="col">¿Cómo guarda los datos?</th>
+          <th scope="col">Velocidad</th>
+          <th scope="col">Capacidad y precio</th>
+          <th scope="col">¿Necesita internet?</th>
+          <th scope="col">Buen uso para…</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">HDD</th>
+          <td data-label="¿Cómo guarda los datos?">Con piezas mecánicas (platos que giran)</td>
+          <td data-label="Velocidad">Más lenta</td>
+          <td data-label="Capacidad y precio">Mucha capacidad a un precio accesible</td>
+          <td data-label="¿Necesita internet?">No</td>
+          <td data-label="Buen uso para…">Guardar muchos archivos y copias de seguridad</td>
+        </tr>
+        <tr>
+          <th scope="row">SSD</th>
+          <td data-label="¿Cómo guarda los datos?">Con memoria flash, sin partes móviles</td>
+          <td data-label="Velocidad">Más rápida</td>
+          <td data-label="Capacidad y precio">Suele costar más que un HDD por la misma capacidad</td>
+          <td data-label="¿Necesita internet?">No</td>
+          <td data-label="Buen uso para…">Instalar el sistema operativo y abrir programas rápido</td>
+        </tr>
+        <tr>
+          <th scope="row">Nube</th>
+          <td data-label="¿Cómo guarda los datos?">En servidores remotos, accesibles por internet</td>
+          <td data-label="Velocidad">Depende de la conexión</td>
+          <td data-label="Capacidad y precio">Suele ofrecer un espacio gratuito limitado; ampliarlo puede costar</td>
+          <td data-label="¿Necesita internet?">Sí</td>
+          <td data-label="Buen uso para…">Compartir trabajos y entrar desde varios dispositivos</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tip"><strong>💡 No confundas RAM con almacenamiento:</strong> la RAM es la memoria de trabajo (temporal: se vacía al apagar el equipo); el almacenamiento guarda archivos y programas de forma permanente. Es como un escritorio (RAM) y un archivero (almacenamiento).</div>
+  <p class="ver-mas"><a href="tecnologia.html#hdd-ssd">Profundizar en RAM, HDD y SSD →</a></p>
+</section>
+
+<section id="sistemas">
+  <div class="section-title">
+    <span>04 · SISTEMAS OPERATIVOS</span>
+    <h2>El intermediario del dispositivo</h2>
+    <p>Administra el hardware y proporciona una interfaz para utilizar el equipo.</p>
+  </div>
+  <div class="grid">
+    <article class="card"><div class="icon" aria-hidden="true">🪟</div><h3>Windows</h3><p>Sistema operativo de Microsoft muy utilizado en computadoras personales.</p></article>
+    <article class="card"><div class="icon" aria-hidden="true">🍎</div><h3>macOS</h3><p>Sistema operativo desarrollado por Apple para sus computadoras Mac.</p></article>
+    <article class="card"><div class="icon" aria-hidden="true">🐧</div><h3>Linux</h3><p>Familia de sistemas operativos basados en el núcleo Linux, muy utilizada también en servidores.</p></article>
+    <article class="card"><div class="icon" aria-hidden="true">📱</div><h3>Android e iOS</h3><p>Sistemas operativos diseñados principalmente para dispositivos móviles.</p></article>
+  </div>
+  <p class="ver-mas"><a href="tecnologia.html#sistemas-operativos">Profundizar en los sistemas operativos →</a></p>
+</section>
+
+<section id="ia">
+  <div class="section-title">
+    <span>05 · INTELIGENCIA ARTIFICIAL</span>
+    <h2>¿Qué es la IA?</h2>
+    <p>Tecnología que permite a los sistemas realizar tareas que normalmente requieren inteligencia humana, como reconocer imágenes o traducir idiomas.</p>
+  </div>
+  <div class="grid">
+    <article class="card"><div class="icon" aria-hidden="true">🤖</div><h3>Aprendizaje automático</h3><p>Los sistemas pueden encontrar patrones en datos y mejorar su desempeño en determinadas tareas.</p></article>
+    <article class="card"><div class="icon" aria-hidden="true">💬</div><h3>IA generativa</h3><p>Puede crear contenido como texto, imágenes, audio o código a partir de instrucciones.</p></article>
+    <article class="card"><div class="icon" aria-hidden="true">🎓</div><h3>Uso responsable</h3><p>La IA puede ayudar a estudiar, pero es importante revisar la información y comprender el contenido.</p></article>
+  </div>
+  <div class="tip"><strong>💡 Consejo:</strong> Usá la IA como herramienta de aprendizaje, no como reemplazo de tu propio razonamiento.</div>
+  <p class="ver-mas"><a href="tecnologia.html#ia">Profundizar en la inteligencia artificial →</a></p>
+</section>
+
+<section id="seguridad">
+  <div class="section-title">
+    <span>06 · SEGURIDAD DIGITAL</span>
+    <h2>Protegé tu información</h2>
+    <p>Pequeños hábitos pueden ayudar a mantener tus cuentas y datos más seguros.</p>
+  </div>
+  <div class="grid">
+    <article class="card"><div class="icon" aria-hidden="true">🔐</div><h3>Contraseñas seguras</h3><p>Usá contraseñas largas y diferentes para cada cuenta. Cuando esté disponible, activá la verificación en dos pasos.</p></article>
+    <article class="card"><div class="icon" aria-hidden="true">🎣</div><h3>Phishing</h3><p>Desconfiá de mensajes que pidan datos, contraseñas o códigos mediante enlaces inesperados.</p></article>
+    <article class="card"><div class="icon" aria-hidden="true">🔄</div><h3>Actualizaciones</h3><p>Mantené actualizado el sistema y las aplicaciones para recibir correcciones de seguridad.</p></article>
+    <article class="card"><div class="icon" aria-hidden="true">🛡️</div><h3>Privacidad</h3><p>Revisá qué información compartís y configurá adecuadamente la privacidad de tus cuentas.</p></article>
+  </div>
+  <p class="ver-mas"><a href="tecnologia.html#seguridad">Profundizar en seguridad digital →</a></p>
+</section>
+
+<section id="juegos">
+  <div class="section-title">
+    <span>JUEGOS</span>
+    <h2>Jugá y ponete a prueba</h2>
+    <p>Dos juegos cortos para repasar lo que aprendiste. Cada uno tiene 10 desafíos, explicaciones y una nota de 0 a 10.</p>
+  </div>
+  <div class="grid">
+    <article class="card"><div class="icon" aria-hidden="true">❓</div><h3>Quiz tecnológico</h3><p>10 preguntas de opción múltiple sobre todos los temas de la guía.</p><p><a class="btn-azul" href="juegos.html#quiz">Jugar al quiz →</a></p></article>
+    <article class="card"><div class="icon" aria-hidden="true">🖼️</div><h3>Identificá el componente</h3><p>Reconocé piezas de una computadora a partir de imágenes y descubrí para qué sirven.</p><p><a class="btn-azul" href="juegos.html#juego">Jugar →</a></p></article>
+  </div>
+  <p class="ver-mas"><a href="juegos.html">Ir a la página de juegos →</a></p>
+</section>
+
+<section id="sugerencias">
+  <div class="section-title">
+    <span>PARTICIPÁ</span>
+    <h2>Proponé un tema</h2>
+    <p>Completá los campos marcados con asterisco (*).</p>
+  </div>
+
+  <p class="aviso-demo"><strong>Formulario demostrativo:</strong> no guarda ni envía nada. No escribas nombres, apellidos, teléfonos, correos ni otros datos personales.</p>
+
+  <form id="form-sugerencia" class="formulario" method="dialog" autocomplete="off">
+
+    <div class="campo">
+      <label for="tema">Tema de tu sugerencia *</label>
+      <select id="tema" name="tema" required>
+        <option value="">Elegí un tema…</option>
+        <option value="hardware">Hardware</option>
+        <option value="software">Software</option>
+        <option value="almacenamiento">Almacenamiento</option>
+        <option value="sistemas">Sistemas operativos</option>
+        <option value="ia">Inteligencia artificial</option>
+        <option value="seguridad">Seguridad digital</option>
+        <option value="otro">Otro tema</option>
+      </select>
+    </div>
+
+    <fieldset>
+      <legend>Tipo de sugerencia</legend>
+      <div class="opcion">
+        <input type="radio" id="tipo-contenido" name="tipo" value="contenido" checked>
+        <label for="tipo-contenido">Contenido nuevo</label>
+      </div>
+      <div class="opcion">
+        <input type="radio" id="tipo-correccion" name="tipo" value="correccion">
+        <label for="tipo-correccion">Corregir algo</label>
+      </div>
+      <div class="opcion">
+        <input type="radio" id="tipo-quiz" name="tipo" value="quiz">
+        <label for="tipo-quiz">Idea para el quiz</label>
+      </div>
+    </fieldset>
+
+    <div class="campo">
+      <label for="comentario">Tu idea o comentario *</label>
+      <textarea id="comentario" name="comentario" rows="5" minlength="10" required></textarea>
+      <p class="ayuda">Escribí al menos 10 caracteres. No incluyas datos personales.</p>
+    </div>
+
+    <div class="campo">
+      <div class="opcion">
+        <input type="checkbox" id="acepto" name="acepto" required>
+        <label for="acepto">Entiendo que es solo una demostración: no se guarda ni se envía nada *</label>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-azul">Enviar sugerencia (demo)</button>
+    <p id="mensaje-form" aria-live="polite"></p>
+  </form>
+  <noscript><p class="ayuda">El formulario necesita JavaScript. Como es solo una demostración, no pasa nada si no lo usás.</p></noscript>
+</section>
+
+  <aside class="siguiente" aria-label="Siguiente paso">
+    <div>
+      <h2>¿Querés profundizar?</h2>
+      <p>La página de tecnología explica cada tema por dentro, con tablas comparativas, diagramas y más ejemplos.</p>
+    </div>
+    <div class="siguiente-botones">
+      <a class="btn-azul" href="tecnologia.html">Ir a tecnología →</a>
+      <a class="btn-claro" href="juegos.html">Ir a los juegos →</a>
+    </div>
+  </aside>
+
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h2>BTI Tech</h2>
+      <p>Guía tecnológica para estudiantes de la Feria de Informática.</p>
+    </div>
+    <div class="footer-col">
+      <h3>Navegación</h3>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="tecnologia.html">Tecnología en profundidad</a></li>
+        <li><a href="juegos.html">Juegos</a></li>
+        <li><a href="#sugerencias">Sugerencias</a></li>
+        <li><a href="#inicio">↑ Volver arriba</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Imágenes</h3>
+      <details class="creditos" id="creditos">
+        <summary>Créditos de las imágenes</summary>
+        <ul>
+          <li>Esquemas (periféricos, partes de la computadora, funcionamiento de la computadora, capas de software, sistemas operativos, inteligencia artificial y phishing): ilustraciones originales creadas para este proyecto con asistencia de IA, sin material de terceros.</li>
+          <li>Logotipo de BTI Tech: diseño original creado para este proyecto con asistencia de IA, sin material de terceros.</li>
+          <li>Fotografías de componentes (procesador CPU, memoria RAM, tarjeta gráfica GPU, disco duro HDD, unidad SSD SATA y unidad SSD M.2 NVMe): material visual de referencia seleccionado por el Grupo 7 y utilizado con fines exclusivamente educativos, académicos y demostrativos (1.º BTI — Feria de Informática), sin fines de lucro ni uso comercial.</li>
+        </ul>
+      </details>
+    </div>
+  </div>
+  <div class="team">Grupo 7 · Dahiana · Luz María · Alejandra</div>
+</footer>
+
+</body>
+</html>

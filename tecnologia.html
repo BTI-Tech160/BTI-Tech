@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tecnología en profundidad — BTI Tech</title>
+<meta name="description" content="Explicaciones en profundidad sobre cómo funciona una computadora: hardware, memoria RAM, HDD y SSD, software, sistemas operativos, inteligencia artificial y seguridad digital.">
+<link rel="icon" type="image/png" href="img/logo-bti-tech.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="header-corto" id="inicio">
+  <div class="hero">
+    <div class="hero-marca">
+      <img class="logo" src="img/logo-bti-tech.png" alt="Logotipo de BTI Tech: cuadrado azul con los símbolos de código y las letras BTI" width="64" height="64">
+      <div class="tag">GRUPO 7 · BTI Tech</div>
+    </div>
+    <h1>Tecnología en profundidad</h1>
+    <p>Cómo funcionan por dentro la computadora, la memoria, el almacenamiento, el software, la inteligencia artificial y la seguridad digital.</p>
+    <div class="hero-botones">
+      <a class="btn" href="index.html">← Volver al inicio</a>
+      <a class="btn btn-borde" href="juegos.html">Ir a los juegos →</a>
+    </div>
+  </div>
+</header>
+
+<nav aria-label="Menú principal">
+  <div class="nav-contenido">
+    <a class="nav-marca" href="index.html"><img src="img/logo-bti-tech.png" alt="" width="32" height="32"><span>BTI Tech</span></a>
+    <ul>
+      <li><a class="nav-pagina" href="index.html">← Inicio</a></li>
+      <li><a href="#funcionamiento">Funcionamiento</a></li>
+      <li><a href="#componentes">Componentes</a></li>
+      <li><a href="#ram">RAM</a></li>
+      <li><a href="#hdd-ssd">HDD y SSD</a></li>
+      <li><a href="#software">Software</a></li>
+      <li><a href="#sistemas-operativos">Sistemas operativos</a></li>
+      <li><a href="#ia">IA</a></li>
+      <li><a href="#seguridad">Seguridad</a></li>
+      <li><a class="nav-pagina" href="juegos.html">Juegos →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+<section id="funcionamiento">
+  <div class="section-title">
+    <span>01 · FUNCIONAMIENTO GENERAL</span>
+    <h2>Cómo trabaja una computadora</h2>
+    <p>Todo equipo sigue el mismo ciclo: recibe datos, los procesa, los guarda y muestra un resultado.</p>
+  </div>
+  <h3 class="concepto">El ciclo de entrada, procesamiento y salida</h3>
+  <div class="explica">
+    <figure class="figura">
+      <img src="img/funcionamiento-computadora.png" alt="Diagrama del ciclo de una computadora: la entrada envía datos al procesamiento (CPU y RAM), que se comunica con el almacenamiento y entrega el resultado a la salida" width="420" height="304" loading="lazy">
+      <figcaption>El ciclo básico de una computadora</figcaption>
+    </figure>
+    <div class="texto">
+      <ul>
+        <li><strong>Entrada:</strong> los periféricos de entrada envían datos al equipo.</li>
+        <li><strong>Procesamiento:</strong> la CPU ejecuta las instrucciones y usa la RAM como memoria de trabajo.</li>
+        <li><strong>Almacenamiento:</strong> conserva los datos y programas de forma permanente.</li>
+        <li><strong>Salida:</strong> los periféricos de salida muestran o entregan el resultado.</li>
+      </ul>
+      <div class="examples"><strong>Ejemplo cotidiano:</strong> al sacar una foto con el celular, la cámara es la entrada, el procesador mejora la imagen, la foto se guarda en el almacenamiento y la pantalla la muestra.</div>
+    </div>
+  </div>
+
+  <h3 class="concepto">Qué pasa cuando abrís un programa</h3>
+  <div class="explica">
+    <figure class="figura">
+      <img src="img/partes-computadora.png" alt="Diagrama simple de una computadora: la CPU en el centro conectada con la memoria RAM, el almacenamiento, la tarjeta gráfica y los periféricos" width="420" height="320" loading="lazy">
+      <figcaption>Esquema simplificado: en una computadora real, todas las partes se conectan a través de la placa madre.</figcaption>
+    </figure>
+    <div class="texto">
+      <ol>
+        <li>Hacés doble clic con el mouse (entrada).</li>
+        <li>El sistema operativo busca el programa en el almacenamiento.</li>
+        <li>Lo copia a la RAM, para poder usarlo rápido.</li>
+        <li>La CPU ejecuta sus instrucciones.</li>
+        <li>Si hay imágenes, la tarjeta gráfica las prepara.</li>
+        <li>El monitor muestra el resultado (salida).</li>
+        <li>Cuando guardás un cambio, los datos vuelven al almacenamiento.</li>
+      </ol>
+
+    </div>
+  </div>
+
+  <h3 class="concepto">Periféricos: la puerta de entrada y de salida</h3>
+  <div class="explica">
+    <figure class="figura">
+      <img src="img/perifericos.png" alt="Esquema de periféricos: de entrada (teclado, mouse y micrófono), de salida (monitor, impresora y parlantes) y de entrada y salida (pantalla táctil e impresora multifunción)" width="420" height="400" loading="lazy">
+      <figcaption>Periféricos de entrada, de salida y mixtos</figcaption>
+    </figure>
+    <div class="texto">
+      <p>Los de entrada empiezan el ciclo y los de salida lo terminan. Se conectan por cable (USB, HDMI) o de forma inalámbrica (Bluetooth, Wi-Fi). Algunos hacen las dos tareas, como una pantalla táctil.</p>
+      <div class="examples"><strong>Ejemplo cotidiano:</strong> al imprimir un trabajo, la computadora envía los datos a la impresora, que es un periférico de salida.</div>
+    </div>
+  </div>
+
+</section>
+
+<section id="componentes">
+  <div class="section-title">
+    <span>02 · COMPONENTES INTERNOS</span>
+    <h2>El hardware por dentro</h2>
+    <p>Cada pieza cumple una función y se instala en un lugar específico.</p>
+  </div>
+  <div class="tabla-wrap">
+    <table>
+      <caption>Tabla comparativa de componentes de una computadora</caption>
+      <thead>
+        <tr><th scope="col">Componente</th><th scope="col">Función principal</th><th scope="col">Cómo reconocerlo</th><th scope="col">Dónde se instala</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Placa madre</th>
+          <td data-label="Función principal">Conecta y comunica todos los componentes.</td>
+          <td data-label="Cómo reconocerlo">Placa grande con ranuras y conectores.</td>
+          <td data-label="Dónde se instala">Dentro del gabinete: sobre ella se instalan los demás componentes.</td>
+        </tr>
+        <tr>
+          <th scope="row">Procesador (CPU)</th>
+          <td data-label="Función principal">Ejecuta instrucciones y realiza cálculos.</td>
+          <td data-label="Cómo reconocerlo">Chip cuadrado y pequeño, que suele estar bajo un disipador y un ventilador.</td>
+          <td data-label="Dónde se instala">En el zócalo (socket) de la placa madre.</td>
+        </tr>
+        <tr>
+          <th scope="row">Memoria RAM</th>
+          <td data-label="Función principal">Guarda temporalmente lo que el equipo está usando.</td>
+          <td data-label="Cómo reconocerlo">Módulo alargado con chips negros.</td>
+          <td data-label="Dónde se instala">En las ranuras de memoria de la placa madre.</td>
+        </tr>
+        <tr>
+          <th scope="row">Tarjeta gráfica (GPU)</th>
+          <td data-label="Función principal">Genera las imágenes que se ven en la pantalla.</td>
+          <td data-label="Cómo reconocerlo">La dedicada es una placa con disipador, ventiladores y salidas de video.</td>
+          <td data-label="Dónde se instala">La dedicada, en una ranura PCI Express de la placa madre. La integrada viene dentro del procesador.</td>
+        </tr>
+        <tr>
+          <th scope="row">Almacenamiento (HDD o SSD)</th>
+          <td data-label="Función principal">Guarda archivos y programas de forma permanente.</td>
+          <td data-label="Cómo reconocerlo">Caja de 2,5 o 3,5 pulgadas, o placa pequeña (M.2).</td>
+          <td data-label="Dónde se instala">En un conector SATA o en una ranura M.2.</td>
+        </tr>
+        <tr>
+          <th scope="row">Fuente de alimentación</th>
+          <td data-label="Función principal">Convierte la corriente alterna de la red en corriente continua de bajo voltaje, que es la que usan los componentes.</td>
+          <td data-label="Cómo reconocerlo">Caja metálica con cables y un ventilador.</td>
+          <td data-label="Dónde se instala">Dentro del gabinete; sus cables se conectan a los componentes.</td>
+        </tr>
+        <tr>
+          <th scope="row">Refrigeración</th>
+          <td data-label="Función principal">Retira el calor para evitar el sobrecalentamiento.</td>
+          <td data-label="Cómo reconocerlo">Bloque metálico con aletas y ventilador.</td>
+          <td data-label="Dónde se instala">Sobre el procesador (y también en la tarjeta gráfica).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="concepto">Procesador (CPU): el que ejecuta las instrucciones</h3>
+  <div class="explica">
+    <figure class="figura">
+      <img src="img/cpu.jpg" alt="Fotografía de un procesador Intel Core i5 sostenido con una mano: un chip cuadrado y pequeño, con cubierta metálica gris" width="800" height="600" loading="lazy">
+      <figcaption>Procesador (CPU) sostenido en la mano</figcaption>
+    </figure>
+    <div class="texto">
+      <p><strong>Cómo reconocerlo:</strong> es un chip cuadrado y pequeño, que cabe en la palma de la mano. Se instala en la placa madre y suele estar cubierto por un disipador y un ventilador.</p>
+      <p>Cinco datos para comparar procesadores:</p>
+      <ul>
+        <li><strong>Núcleos (cores):</strong> cada uno ejecuta instrucciones de forma independiente.</li>
+        <li><strong>Frecuencia:</strong> la velocidad de trabajo, medida en GHz (no es el único dato que influye en el rendimiento).</li>
+        <li><strong>Caché:</strong> memoria muy rápida dentro del procesador.</li>
+        <li><strong>Socket:</strong> el conector donde se instala; debe ser compatible con la placa madre.</li>
+        <li><strong>TDP (potencia de diseño térmico):</strong> indica cuánto calor genera el procesador en uso normal, y por lo tanto cuánta refrigeración necesita.</li>
+      </ul>
+      <div class="examples"><strong>Ejemplo cotidiano:</strong> un procesador con más núcleos puede hacer más tareas a la vez, como escuchar música mientras escribís un trabajo.</div>
+    </div>
+  </div>
+
+  <h3 class="concepto">Tarjeta gráfica (GPU): integrada o dedicada</h3>
+  <div class="explica">
+    <figure class="figura">
+      <img src="img/gpu.jpg" alt="Fotografía de una tarjeta gráfica dedicada con dos ventiladores y, en su lateral, salidas de video HDMI, VGA y DVI" width="800" height="600" loading="lazy">
+      <figcaption>Tarjeta gráfica dedicada con dos ventiladores</figcaption>
+    </figure>
+    <div class="texto">
+      <ul>
+        <li><strong>Integrada:</strong> forma parte del procesador (en equipos más antiguos, de la placa madre) y comparte la memoria RAM del equipo.</li>
+        <li><strong>Dedicada:</strong> es una tarjeta aparte, con su propia memoria. Rinde más, pero consume más energía y necesita ventiladores.</li>
+      </ul>
+      <p><strong>CPU y GPU:</strong> la CPU es versátil y resuelve todo tipo de tareas; la GPU está especializada en hacer muchísimos cálculos parecidos a la vez, como los que hacen falta para dibujar imágenes.</p>
+      <p><strong>Cómo reconocerla:</strong> una placa con disipador, ventiladores y salidas de video (HDMI, VGA, DVI) que se conecta a la placa madre.</p>
+      <div class="examples"><strong>Ejemplo cotidiano:</strong> para editar un video o jugar con muchos detalles conviene una tarjeta dedicada; para navegar y escribir alcanza con la integrada.</div>
+    </div>
+  </div>
+
+</section>
+
+<section id="ram">
+  <div class="section-title">
+    <span>03 · MEMORIA RAM</span>
+    <h2>La memoria de trabajo</h2>
+    <p>Es rápida, pero solo guarda datos mientras el equipo está encendido.</p>
+  </div>
+  <h3 class="concepto">Cómo funciona y cómo se reconoce</h3>
+  <div class="explica">
+    <figure class="figura">
+      <img src="img/ram.jpg" alt="Fotografía de varios módulos de memoria RAM instalados en las ranuras de una placa madre azul" width="800" height="600" loading="lazy">
+      <figcaption>Módulos de memoria RAM instalados</figcaption>
+    </figure>
+    <div class="texto">
+      <ul>
+        <li><strong>Es volátil:</strong> al apagar el equipo, su contenido se borra.</li>
+        <li><strong>Se mide en GB:</strong> más RAM permite tener más programas abiertos a la vez.</li>
+        <li><strong>Formatos:</strong> los módulos DIMM se usan en computadoras de escritorio y los SO-DIMM, más cortos, en notebooks.</li>
+        <li><strong>No es almacenamiento:</strong> un equipo puede tener, por ejemplo, 8 GB de RAM y 512 GB de almacenamiento. Son dos cosas distintas: la RAM guarda lo que se usa ahora; el almacenamiento guarda tus archivos.</li>
+        <li><strong>Generaciones:</strong> DDR3, DDR4 y DDR5 no son intercambiables; cada una necesita su propia ranura.</li>
+      </ul>
+      <p><strong>Cómo reconocerla:</strong> una placa alargada con chips negros, sujeta por unas trabas en los extremos de la ranura.</p>
+      <div class="examples"><strong>Ejemplo cotidiano:</strong> si abrís muchas pestañas de video y se llena la RAM, el equipo se vuelve lento porque debe usar el almacenamiento como apoyo.</div>
+    </div>
+  </div>
+
+</section>
+
+<section id="hdd-ssd">
+  <div class="section-title">
+    <span>04 · ALMACENAMIENTO</span>
+    <h2>HDD y SSD por dentro</h2>
+    <p>Dos formas de guardar archivos de manera permanente.</p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <h3><span aria-hidden="true">💾</span> HDD</h3>
+      <figure class="foto"><img src="img/hdd.jpg" alt="Fotografía de un disco duro (HDD) abierto, donde se ven el plato giratorio y el brazo lector" width="800" height="600" loading="lazy"><figcaption>Disco duro (HDD) abierto</figcaption></figure>
+      <p><strong>Cómo funciona:</strong> uno o más platos magnéticos giran mientras un brazo con una cabeza lectora se mueve sobre ellos. Al tener piezas mecánicas, es más lento y sensible a los golpes mientras trabaja.</p>
+      <p><strong>Cómo reconocerlo:</strong> caja metálica rectangular de 3,5 pulgadas (escritorio) o 2,5 (notebook), con conector SATA.</p>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">⚡</span> SSD SATA</h3>
+      <figure class="foto"><img src="img/ssd-sata.jpg" alt="Imagen de un SSD de 2,5 pulgadas con su conector SATA a la izquierda y, apoyado encima, un SSD M.2 NVMe" width="800" height="600" loading="lazy"><figcaption>SSD SATA de 2,5 pulgadas (atrás) y SSD M.2 (adelante)</figcaption></figure>
+      <p><strong>Cómo funciona:</strong> guarda los datos en chips de memoria flash, sin partes móviles. Es más rápido y resiste mejor los golpes que un HDD.</p>
+      <p><strong>Cómo reconocerlo:</strong> caja de 2,5 pulgadas, delgada y liviana, con el mismo conector SATA que el HDD (a la izquierda en la imagen).</p>
+    </article>
+    <article class="card">
+      <h3><span aria-hidden="true">⚡</span> SSD M.2</h3>
+      <figure class="foto"><img src="img/ssd-m2.jpg" alt="Fotografía de dos unidades SSD M.2 NVMe: placas alargadas con etiqueta y un conector dorado en un extremo" width="800" height="600" loading="lazy"><figcaption>SSD M.2 NVMe</figcaption></figure>
+      <p><strong>Cómo funciona:</strong> M.2 es el formato (la forma y el conector), no la tecnología. Puede usar la interfaz SATA o NVMe; esta última es más rápida porque se comunica por PCI Express.</p>
+      <p><strong>Cómo reconocerlo:</strong> placa alargada con un conector dorado en un extremo, que se atornilla en una ranura de la placa madre.</p>
+    </article>
+  </div>
+  <h3 class="subtitulo">Comparación entre RAM, HDD y SSD</h3>
+  <div class="tabla-wrap">
+    <table>
+      <caption>Comparación entre RAM, HDD y SSD</caption>
+      <thead>
+        <tr><th scope="col">Característica</th><th scope="col">RAM</th><th scope="col">HDD</th><th scope="col">SSD</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Función</th>
+          <td data-label="RAM">Memoria de trabajo: guarda lo que se usa ahora.</td>
+          <td data-label="HDD">Guarda archivos y programas.</td>
+          <td data-label="SSD">Guarda archivos y programas.</td>
+        </tr>
+        <tr>
+          <th scope="row">¿Se conserva al apagar?</th>
+          <td data-label="RAM">No (es memoria volátil).</td>
+          <td data-label="HDD">Sí.</td>
+          <td data-label="SSD">Sí.</td>
+        </tr>
+        <tr>
+          <th scope="row">Tecnología</th>
+          <td data-label="RAM">Chips de memoria.</td>
+          <td data-label="HDD">Platos magnéticos y una cabeza lectora.</td>
+          <td data-label="SSD">Memoria flash.</td>
+        </tr>
+        <tr>
+          <th scope="row">Partes móviles</th>
+          <td data-label="RAM">No.</td>
+          <td data-label="HDD">Sí.</td>
+          <td data-label="SSD">No.</td>
+        </tr>
+        <tr>
+          <th scope="row">Velocidad</th>
+          <td data-label="RAM">La más rápida.</td>
+          <td data-label="HDD">La más lenta.</td>
+          <td data-label="SSD">Mucho más rápida que el HDD, aunque más lenta que la RAM.</td>
+        </tr>
+        <tr>
+          <th scope="row">Capacidad habitual</th>
+          <td data-label="RAM">Menor: se mide en GB (por ejemplo, 8 o 16 GB).</td>
+          <td data-label="HDD">Cientos de GB hasta varios TB.</td>
+          <td data-label="SSD">Cientos de GB hasta algunos TB.</td>
+        </tr>
+        <tr>
+          <th scope="row">Costo por GB</th>
+          <td data-label="RAM">El más alto.</td>
+          <td data-label="HDD">El más bajo.</td>
+          <td data-label="SSD">Intermedio.</td>
+        </tr>
+        <tr>
+          <th scope="row">Analogía</th>
+          <td data-label="RAM">El escritorio donde trabajás.</td>
+          <td data-label="HDD">Un archivero grande y económico.</td>
+          <td data-label="SSD">Un archivero donde todo se encuentra más rápido.</td>
+        </tr>
+        <tr>
+          <th scope="row">Uso típico</th>
+          <td data-label="RAM">Tener abiertos a la vez el navegador y un documento.</td>
+          <td data-label="HDD">Guardar fotos, videos y copias de seguridad.</td>
+          <td data-label="SSD">Instalar el sistema operativo y los programas.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="software">
+  <div class="section-title">
+    <span>05 · CLASIFICACIÓN DEL SOFTWARE</span>
+    <h2>Tipos de software</h2>
+    <p>Según su función, los programas se organizan en capas.</p>
+  </div>
+  <h3 class="concepto">Las capas de un equipo</h3>
+  <div class="explica">
+    <figure class="figura">
+      <img src="img/capas-software.png" alt="Esquema en capas: el usuario usa el software de aplicación, que funciona sobre el software de sistema, y este controla el hardware" width="420" height="430" loading="lazy">
+      <figcaption>Capas de un equipo: del usuario al hardware</figcaption>
+    </figure>
+    <div class="texto">
+      <p>Las aplicaciones piden ayuda al software de sistema, y este se encarga de usar el hardware. Por eso, sin sistema operativo, un navegador o un juego no podrían ejecutarse.</p>
+      <div class="examples"><strong>Ejemplo cotidiano:</strong> al abrir el navegador para buscar algo, la aplicación pide ayuda al sistema operativo, y este usa el hardware de tu equipo.</div>
+    </div>
+  </div>
+
+  <div class="tabla-wrap">
+    <table>
+      <caption>Clasificación del software según su función</caption>
+      <thead>
+        <tr><th scope="col">Tipo</th><th scope="col">Para qué sirve</th><th scope="col">Ejemplos</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Software de sistema</th>
+          <td data-label="Para qué sirve">Administra el equipo y permite que funcionen los demás programas.</td>
+          <td data-label="Ejemplos">Sistema operativo, controladores (drivers).</td>
+        </tr>
+        <tr>
+          <th scope="row">Software de aplicación</th>
+          <td data-label="Para qué sirve">Permite realizar tareas concretas.</td>
+          <td data-label="Ejemplos">Navegador, procesador de texto, reproductor de video, juegos.</td>
+        </tr>
+        <tr>
+          <th scope="row">Software de programación</th>
+          <td data-label="Para qué sirve">Sirve para crear otros programas.</td>
+          <td data-label="Ejemplos">Editores de código, compiladores e intérpretes (por ejemplo, Python).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="concepto">También se clasifica según su licencia</h3>
+  <div class="grid">
+    <article class="card"><div class="icon" aria-hidden="true">🔓</div><h3>Software libre o de código abierto</h3><p>Su código se puede estudiar, modificar y compartir. En este nivel se usan casi como sinónimos, aunque los dos nombres no significan exactamente lo mismo.</p><div class="examples">Ejemplos: Linux, LibreOffice, Firefox, VLC.</div></article>
+    <article class="card"><div class="icon" aria-hidden="true">🔒</div><h3>Software propietario</h3><p>Su código no se comparte y su uso depende de la licencia del fabricante.</p><div class="examples">Ejemplos: Windows, Microsoft Office, Adobe Photoshop.</div></article>
+  </div>
+</section>
+
+<section id="sistemas-operativos">
+  <div class="section-title">
+    <span>06 · SISTEMAS OPERATIVOS</span>
+    <h2>Qué hace un sistema operativo</h2>
+    <p>Es el encargado de coordinar el hardware y las aplicaciones.</p>
+  </div>
+  <h3 class="concepto">Sus funciones principales</h3>
+  <div class="explica">
+    <figure class="figura">
+      <img src="img/sistemas-operativos.png" alt="Esquema simplificado de las pantallas de Windows, macOS, Linux, Android e iOS" width="420" height="330" loading="lazy">
+      <figcaption>Esquema simplificado (no son capturas reales). El aspecto de Linux cambia según la distribución.</figcaption>
+    </figure>
+    <div class="texto">
+      <ul>
+        <li><strong>Procesos:</strong> decide qué programa usa el procesador y en qué momento.</li>
+        <li><strong>Memoria:</strong> reparte la RAM entre los programas.</li>
+        <li><strong>Archivos:</strong> organiza dónde se guardan y cómo se encuentran.</li>
+        <li><strong>Dispositivos:</strong> se comunica con los periféricos mediante los controladores.</li>
+        <li><strong>Usuarios y seguridad:</strong> controla quién puede acceder a qué.</li>
+        <li><strong>Interfaz:</strong> gráfica (ventanas e íconos) o de línea de comandos (texto).</li>
+      </ul>
+      <div class="examples"><strong>Ejemplo cotidiano:</strong> cuando guardás un archivo, el sistema operativo decide en qué parte del almacenamiento ubicarlo y lo encuentra después por su nombre.</div>
+    </div>
+  </div>
+
+  <div class="tabla-wrap">
+    <table>
+      <caption>Comparación de sistemas operativos</caption>
+      <thead>
+        <tr><th scope="col">Sistema</th><th scope="col">Desarrollado por</th><th scope="col">Se usa en</th><th scope="col">Código</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Windows</th>
+          <td data-label="Desarrollado por">Microsoft</td>
+          <td data-label="Se usa en">Computadoras de escritorio y notebooks.</td>
+          <td data-label="Código">Propietario (cerrado).</td>
+        </tr>
+        <tr>
+          <th scope="row">macOS</th>
+          <td data-label="Desarrollado por">Apple</td>
+          <td data-label="Se usa en">Computadoras Mac.</td>
+          <td data-label="Código">Propietario (cerrado).</td>
+        </tr>
+        <tr>
+          <th scope="row">Linux</th>
+          <td data-label="Desarrollado por">Una comunidad mundial y empresas</td>
+          <td data-label="Se usa en">Computadoras, servidores y otros equipos.</td>
+          <td data-label="Código">Libre (abierto). Se distribuye en versiones llamadas distribuciones, como Ubuntu, Debian o Fedora.</td>
+        </tr>
+        <tr>
+          <th scope="row">Android</th>
+          <td data-label="Desarrollado por">Google</td>
+          <td data-label="Se usa en">Celulares y tabletas.</td>
+          <td data-label="Código">Basado en el núcleo Linux. La base es de código abierto.</td>
+        </tr>
+        <tr>
+          <th scope="row">iOS</th>
+          <td data-label="Desarrollado por">Apple</td>
+          <td data-label="Se usa en">iPhone.</td>
+          <td data-label="Código">Propietario (cerrado).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="ia">
+  <div class="section-title">
+    <span>07 · INTRODUCCIÓN A LA IA</span>
+    <h2>Cómo aprende una IA</h2>
+    <p>Aprende de ejemplos, no de reglas escritas una por una.</p>
+  </div>
+  <h3 class="concepto">Del dato al resultado</h3>
+  <div class="explica">
+    <figure class="figura">
+      <img src="img/ia-proceso.png" alt="Diagrama de tres pasos: 1, entrada (texto, imágenes, voz o datos); 2, procesamiento, donde un modelo de IA entrenado con muchos datos busca patrones y calcula una respuesta; 3, resultado (respuesta, traducción, clasificación o recomendación)" width="420" height="430" loading="lazy">
+      <figcaption>Cómo funciona un sistema de IA, de forma simplificada</figcaption>
+    </figure>
+    <div class="texto">
+      <ol>
+        <li><strong>Datos:</strong> se reúnen muchos ejemplos (textos, imágenes, sonidos).</li>
+        <li><strong>Entrenamiento:</strong> el sistema busca patrones en esos ejemplos y arma un modelo.</li>
+        <li><strong>Prueba:</strong> se comprueba qué tan bien responde con ejemplos nuevos.</li>
+        <li><strong>Uso:</strong> el modelo recibe una entrada y entrega un resultado.</li>
+      </ol>
+      <p><strong>Límites:</strong> no piensa ni entiende como una persona: calcula respuestas a partir de patrones. Puede equivocarse, inventar datos que suenan convincentes, repetir prejuicios presentes en los datos con los que aprendió y exige cuidar la privacidad de lo que le compartimos. Por eso hay que revisar siempre sus respuestas.</p>
+      <div class="examples"><strong>Ejemplo cotidiano:</strong> una aplicación de fotos que agrupa tus imágenes por tema, como playa o mascotas, usa IA para reconocer lo que hay en cada una.</div>
+    </div>
+  </div>
+
+</section>
+
+<section id="seguridad">
+  <div class="section-title">
+    <span>08 · BUENAS PRÁCTICAS</span>
+    <h2>Seguridad digital</h2>
+    <p>Hábitos simples que reducen los riesgos.</p>
+  </div>
+  <h3 class="concepto">Cómo reconocer un mensaje de phishing</h3>
+  <div class="explica">
+    <figure class="figura">
+      <img src="img/phishing-ejemplo.png" alt="Ejemplo ficticio de mensaje de phishing con cuatro señales de alerta numeradas: remitente extraño, urgencia, saludo genérico y enlace sospechoso" width="420" height="470" loading="lazy">
+      <figcaption>Ejemplo ficticio: las direcciones usan el dominio reservado <code>.example</code>, que no corresponde a ningún sitio real.</figcaption>
+    </figure>
+    <div class="texto">
+      <ol>
+        <li><strong>Remitente extraño:</strong> la dirección no es la oficial de la institución.</li>
+        <li><strong>Urgencia o amenaza:</strong> te apura para que no pienses.</li>
+        <li><strong>Saludo genérico:</strong> no te llama por tu nombre.</li>
+        <li><strong>Enlace sospechoso:</strong> la dirección no coincide con el sitio oficial.</li>
+      </ol>
+      <p><strong>Qué hacer:</strong> no hagas clic. Escribí vos mismo la dirección oficial en el navegador o consultá a un docente o a un adulto de confianza.</p>
+      <div class="examples"><strong>Ejemplo cotidiano:</strong> un mensaje que dice que tu cuenta de la clase será bloqueada si no ingresás ya, con un enlace raro.</div>
+    </div>
+  </div>
+
+  <div class="tabla-wrap">
+    <table>
+      <caption>Buenas prácticas de seguridad digital</caption>
+      <thead>
+        <tr><th scope="col">Práctica</th><th scope="col">Cómo aplicarla</th><th scope="col">Por qué ayuda</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Contraseñas</th>
+          <td data-label="Cómo aplicarla">Usá frases largas y una diferente para cada cuenta. Un gestor de contraseñas ayuda a recordarlas.</td>
+          <td data-label="Por qué ayuda">Si se descubre una, las demás cuentas siguen protegidas.</td>
+        </tr>
+        <tr>
+          <th scope="row">Verificación en dos pasos</th>
+          <td data-label="Cómo aplicarla">Activala en tus cuentas importantes (código o aplicación de verificación). Nunca compartas ese código con nadie.</td>
+          <td data-label="Por qué ayuda">Aunque alguien conozca tu contraseña, le falta el segundo paso.</td>
+        </tr>
+        <tr>
+          <th scope="row">Actualizaciones</th>
+          <td data-label="Cómo aplicarla">Dejá activadas las actualizaciones del sistema y de las aplicaciones.</td>
+          <td data-label="Por qué ayuda">Corrigen fallas de seguridad conocidas.</td>
+        </tr>
+        <tr>
+          <th scope="row">Copias de seguridad</th>
+          <td data-label="Cómo aplicarla">Guardá copias de tus archivos importantes en otro lugar, como la nube o un disco externo.</td>
+          <td data-label="Por qué ayuda">Si el equipo se pierde o se daña, tus archivos no se pierden.</td>
+        </tr>
+        <tr>
+          <th scope="row">Descargas</th>
+          <td data-label="Cómo aplicarla">Instalá programas solo desde sitios y tiendas oficiales.</td>
+          <td data-label="Por qué ayuda">Reduce el riesgo de instalar software malicioso.</td>
+        </tr>
+        <tr>
+          <th scope="row">Redes Wi-Fi públicas</th>
+          <td data-label="Cómo aplicarla">Evitá ingresar contraseñas o datos personales cuando estés en una red abierta.</td>
+          <td data-label="Por qué ayuda">Las redes abiertas son más fáciles de espiar.</td>
+        </tr>
+        <tr>
+          <th scope="row">Privacidad</th>
+          <td data-label="Cómo aplicarla">Revisá los permisos de tus aplicaciones y no compartas datos personales innecesarios.</td>
+          <td data-label="Por qué ayuda">Cuanta menos información expuesta, menos riesgo.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<aside class="siguiente" aria-label="Siguiente paso">
+  <div>
+    <h2>¿Listo para ponerte a prueba?</h2>
+    <p>Jugá al quiz y a «Identificá el componente» en la página de juegos y conseguí tu nota de 0 a 10.</p>
+  </div>
+  <div class="siguiente-botones">
+    <a class="btn-azul" href="juegos.html">Ir a los juegos →</a>
+    <a class="btn-claro" href="index.html">← Volver al inicio</a>
+  </div>
+</aside>
+
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h2>BTI Tech</h2>
+      <p>Guía tecnológica para estudiantes de la Feria de Informática.</p>
+    </div>
+    <div class="footer-col">
+      <h3>Navegación</h3>
+      <ul>
+        <li><a href="index.html">Página principal</a></li>
+        <li><a href="juegos.html">Juegos</a></li>
+        <li><a href="#inicio">↑ Volver arriba</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Imágenes</h3>
+    <details class="creditos" id="creditos">
+      <summary>Créditos de las imágenes</summary>
+      <ul>
+        <li>Esquemas (periféricos, partes de la computadora, funcionamiento de la computadora, capas de software, sistemas operativos, inteligencia artificial y phishing): ilustraciones originales creadas para este proyecto con asistencia de IA, sin material de terceros.</li>
+        <li>Logotipo de BTI Tech: diseño original creado para este proyecto con asistencia de IA, sin material de terceros.</li>
+        <li>Fotografías de componentes (procesador CPU, memoria RAM, tarjeta gráfica GPU, disco duro HDD, unidad SSD SATA y unidad SSD M.2 NVMe): material visual de referencia seleccionado por el Grupo 7 y utilizado con fines exclusivamente educativos, académicos y demostrativos (1.º BTI — Feria de Informática), sin fines de lucro ni uso comercial.</li>
+      </ul>
+    </details>
+    </div>
+  </div>
+  <div class="team">Grupo 7 · Dahiana · Luz María · Alejandra</div>
+</footer>
+
+</body>
+</html>
